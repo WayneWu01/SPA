@@ -1,0 +1,38 @@
+.card-img-top {
+  max-width: 50%;
+  display: block;
+  margin: 0 auto;
+}
+.btn-outline-success, .btn-outline-primary {
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  width: 150px;
+  text-align: center;
+}
+#posts{
+  overflow: scroll;
+  height: 720px;
+}
+.btnp {
+  width: 150px;
+  background-color: lightsalmon;
+  color: white;
+}
+.reply-name {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: grey;
+}
+.reply {
+  margin-bottom: 8px;
+  color: grey;
+  text-decoration: none;
+}
+.reply:hover {
+  text-decoration: underline;
+}
+.edit{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}

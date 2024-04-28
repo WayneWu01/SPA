@@ -1,0 +1,20 @@
+<div class="card mb-3" *ngFor="let user of loginUser">
+  <div class="card-img-top">
+    <img class="img-fluid" src="{{user.avatar}}" alt="User Image">
+  </div>
+  <div class="card-body">
+    <h1 class="card-title">{{user.username}}</h1>
+    <p class="card-text" id="headline">{{user.headline}}</p>
+  </div>
+  <div class="card-footer">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="New Status" id="inputStatus" [(ngModel)]="status">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" id="updateHeadline" (click)="updateStatus()">
+          <i class="fas fa-upload"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+

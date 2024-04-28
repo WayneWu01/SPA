@@ -1,0 +1,78 @@
+<div class="container mt-4 mb-4 border p-4">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="d-flex flex-column align-items-center">
+        <i class="far fa-file-pdf fa-2x mb-2"></i>
+        <span>Load Image Here</span>
+        <input type="file" name="image" (change)="uploadImage($event)" accept="image/png, image/jpeg, image/gif, image/jpg" class="mt-2">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <textarea class="form-control" placeholder="Post here..." rows="14" id="newPost"></textarea>
+      <div class="text-center mt-2">
+        <button class="btn btnp" id="post" (click)="postNew()">Post</button>
+        <button class="btn btnp" id="cancel" (click)="clear()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt-4">
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="Search..." id="searchInput" [(ngModel)]="keyword">
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" (click)="update(keyword)" >
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col" id="posts">
+    <div *ngFor="let post of posts">
+      <div class="card mb-3">
+        <div class="card-body">
+          <img class="rounded-circle" src="{{post.avatar}}" style="width: 40px; height: 40px;">
+          <span id="articleAuthor">{{post.username}}</span>
+          <span class="meta" style="margin-left: 1280px">{{post.date}}</span>
+          <button class="btn btn-outline-secondary float-right edit" (click)="post.editing = !post.editing">
+            <i class="fas fa-edit"></i>
+          </button>
+          <div *ngIf="post.editing">
+            <textarea class="form-control" [(ngModel)]="post.newText"></textarea>
+            <button type="button" class="btn btn-primary" (click)="updatePost(post._id)">Update</button>
+          </div>
+        </div>
+        <img class="card-img-top" src="{{post.img}}">
+        <div class="card-body allPosts">
+          {{post.text}}
+        </div>
+        <div class="card-footer">
+          <div>
+            <div *ngFor="let comment of post.comments">
+              <img class="rounded-circle" src="{{comment.img}}" style="width: 30px; height: 30px;">
+              <span class="author">{{comment.name}}</span>
+              <div>
+                {{comment.text}}
+                <button class="btn btn-link" (click)="comment.editing = !comment.editing">Edit</button>
+                <div *ngIf="comment.editing">
+                  <textarea class="form-control" [(ngModel)]="comment.newText"></textarea>
+                  <button type="button" class="btn btn-primary" (click)="editComment(post._id, comment._id)">Update</button>
+                </div>
+              </div>
+            </div>
+            <form>
+              <textarea class="form-control" id="newReply{{post._id}}"></textarea>
+              <button class="btn btn-primary mt-2" (click)="addReply(post._id)">
+                <i class="fas fa-edit"></i> Add Reply
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

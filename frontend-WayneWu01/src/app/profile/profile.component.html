@@ -1,0 +1,132 @@
+<div class="wrapper container-fluid">
+  <div class="row justify-content-center" id="contain">
+    <div class="col-md-4 mt-4">
+      <div class="card mb-3 text-center larger-c">
+        <div class="card-body">
+          <a [routerLink]="[ '/main' ]" class="main">Main Page</a>
+          <div class="mt-3 mb-3">
+            <img src={{iavatar}} class="rounded-circle mx-auto d-block" alt="Profile Image" width="250">
+          </div>
+          <input class="form-control" type="file" (change)="uploadAvatar($event)" accept="image/png, image/jpeg, image/gif, image/jpg">
+        </div>
+      </div>
+      <div class="card mb-3 curr">
+        <div class="card-body">
+          <h5 class="card-title">Current Personal Info</h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between">
+              <span class="label-container">
+                <i class="bi bi-person-fill"></i> Account Name:
+              </span>
+              <span id="Aname">{{username}}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span class="label-container">
+                <i class="bi bi-envelope-fill"></i> Email Address:
+              </span>
+              <span id="iemail">{{email}}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span class="label-container">
+                <i class="bi bi-telephone-fill"></i> Phone Number:
+              </span>
+              <span id="iphone">{{phone}}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span class="label-container">
+                <i class="bi bi-card-list"></i> Zip Code:
+              </span>
+              <span id="izip">{{zipcode}}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span class="label-container">
+                <i class="bi bi-card-list"></i> Password:
+              </span>
+              <span id="pass">{{getObscured()}}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mt-4">
+      <div class="card mb-6 long">
+        <div class="card-body">
+          <h5 class="card-title">Update Personal Info</h5>
+          <form #profileForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="accountName" class="form-label">Account Name</label>
+              <input type="text" class="form-control" id="accountName" name="accountName" placeholder="Account Name" pattern="^[A-Za-z][A-Za-z0-9]*$">
+              <div id="checkA" class="ui pointing red basic label" style="display: none">
+                Only starts with uppercase or lowercase letters; Letters and numbers are allowed.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Email" >
+              <div id="checkE" class="ui pointing red basic label" style="display: none">
+                Please check your email.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Phone Number</label>
+              <input type="tel" class="form-control" id="phone" name="phone" placeholder="123-123-1234" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+              <div id="checkP" class="ui pointing red basic label" style="display: none">
+                Format for phone: 123-123-1234
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="zipcode" class="form-label">Zip Code</label>
+              <input type="text" class="form-control" id="zipcode" name="zipcode" placeholder="Zip Code" pattern="[1-9]{1}[0-9]{4}">
+              <div id="checkZ" class="ui pointing red basic label" style="display: none">
+                Zipcode must contain 5 digits
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" name="password">
+            </div>
+            <button type="submit" class="btn btn-primary">Update Info</button>
+          </form>
+          <form>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="normalUsername">Username</label>
+                  <input type="text" class="form-control" id="normalUsername" placeholder="Username">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="normalPassword">Password</label>
+                  <input type="text" class="form-control" id="normalPassword" placeholder="Password">
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="row">
+            <div class="col">
+              <button class="btn btn-primary" (click)="link()">Link</button>
+              <div *ngIf="showLinkSuccess" class="alert alert-success">
+                Linked successfully!
+                <button type="button" class="close" (click)="showLinkSuccess = false">&times;</button>
+              </div>
+              <div *ngIf="showLinkWarning" class="alert alert-warning">
+                You can only link accounts when logged in using the third party account.
+                <button type="button" class="close" (click)="showLinkWarning = false">&times;</button>
+              </div>
+            </div>
+            <div class="col">
+              <button class="btn btn-primary" (click)="unlink()">Unlink</button>
+              <div *ngIf="showUnlinkMessage" class="alert alert-info">
+                You have unlinked.
+                <button type="button" class="close" (click)="showUnlinkMessage = false">&times;</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

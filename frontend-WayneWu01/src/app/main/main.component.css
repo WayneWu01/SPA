@@ -1,0 +1,19 @@
+.wrapper {
+  background-color: mistyrose;
+}
+
+.logout, .profile {
+  color: lightcoral;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.card {
+  background-color: lightpink;
+  border: 1px solid lightcoral;
+}
+
+.border {
+  border: 2px solid lightcoral;
+  padding: 1em;
+}

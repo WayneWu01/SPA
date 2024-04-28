@@ -1,0 +1,30 @@
+<div class="wrapper">
+  <div class="row" style="width: 100%;">
+    <div class="col-md-3">
+      <div class="card mb-3">
+        <div class="row text-center">
+          <div class="col-md-6">
+            <a (click)="logout()"><span class="logout">Log Out</span></a>
+          </div>
+          <div class="col-md-6">
+            <a [routerLink]="[ '/profile' ]"><span class="profile">Profile</span></a>
+          </div>
+        </div>
+        <br>
+        <div class="border">
+          <app-headline></app-headline>
+        </div>
+      </div>
+      <div class="card">
+        <app-follow (newFollowerAdded)="addFollower($event)"></app-follow>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="card">
+        <div class="card border">
+        <app-posts [addNewPosts]="addPost"></app-posts>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

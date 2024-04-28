@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-8"> <!-- Use 8 columns for centered alignment -->
+      <h1 class="mt-5 text-center content">Registration</h1>
+      <form id="Form">
+
+        <div class="row custom-form-group">
+          <div class="col-md-6">
+            <label for="AName">Account Name</label>
+            <input type="text" class="form-control" id="AName" name="AName" placeholder="Account Name" required>
+          </div>
+          <div class="col-md-6">
+            <label for="DName">Display Name</label>
+            <input type="text" class="form-control" id="DName" name="DName" placeholder="optional">
+          </div>
+        </div>
+
+        <div class="row custom-form-group">
+          <div class="col-md-12">
+            <label for="EAddress">Email Address</label>
+            <input type="email" class="form-control" id="EAddress" name="EAddress" placeholder="Email" required>
+          </div>
+        </div>
+
+        <div class="row custom-form-group">
+          <div class="col-md-12">
+            <label for="Phone">Phone Number</label>
+            <input type="tel" class="form-control" id="Phone" name="Phone" placeholder="123-123-1234" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+          </div>
+        </div>
+
+        <div class="row custom-form-group">
+          <div class="col-md-12">
+            <label for="birthday">Birth Date</label>
+            <input type="date" class="form-control" id="birthday" name="birthday" required>
+          </div>
+        </div>
+
+        <div class="row custom-form-group">
+          <div class="col-md-12">
+            <label for="Zip">Zip Code</label>
+            <input type="text" class="form-control" id="Zip" name="Zip" placeholder="Zip Code" pattern="[1-9]{1}[0-9]{4}" required>
+          </div>
+        </div>
+
+        <div class="row custom-form-group">
+          <div class="col-md-6">
+            <label for="Pass">Password</label>
+            <input type="password" class="form-control" id="Pass" name="Pass" required>
+          </div>
+          <div class="col-md-6">
+            <label for="PassC">Confirm Password</label>
+            <input type="password" class="form-control" id="PassC" name="PassC" required>
+          </div>
+        </div>
+
+        <input type="hidden" id="time" name="time" value="">
+        <div class="text-center mt-4 row">
+          <div class="col-md-6">
+            <button type="submit" class="btn btn-primary btn-lg btn-block large" (click)="onSubmit()">Submit</button>
+          </div>
+          <div class="col-md-6">
+            <button type="reset" class="btn btn-secondary btn-lg btn-block large" (click)="reset()">Reset</button>
+          </div>
+        </div>
+      </form>
+      <div *ngIf="showMessage" class="alert alert-danger mt-4">
+        <button type="button" class="close" data-dismiss="alert"><i class="fas fa-times"></i></button>
+        <strong>Errors for registration: </strong>
+        <ul class="mt-2">
+          <li *ngFor="let error of errorMessage">{{ error }}</li>
+        </ul>
+      </div>
+      <div *ngIf="showM" class="alert alert-danger mt-4">
+        <button type="button" class="close" data-dismiss="alert"><i class="fas fa-times"></i></button>
+        <strong>Errors for registration: </strong>
+        <ul class="mt-2">
+          <li *ngFor="let error of errorM">{{ error }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

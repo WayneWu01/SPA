@@ -1,0 +1,55 @@
+<div class="wrapper">
+  <div class="content text-center my-4">
+    <h2 class="header">Welcome!</h2>
+  </div>
+  <div class="row no-gutters">
+
+    <div class="col-md-8 pr-1">
+      <div class="card" id="auth">
+        <div class="card-body">
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <div class="input-group mb-3">
+                <span class="input-group-addon glyphicon glyphicon-user large-icon"></span>
+                <input type="text" class="form-control" placeholder="Username" id="username" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <div class="input-group">
+                <span class="input-group-addon glyphicon glyphicon-lock large-icon"></span>
+                <input type="password" class="form-control" id="password" required>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn">Login</button>
+            <button type="submit" class="btn btn-primary btn-lg btn" (click)="fbLogin()">Facebook</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-10" style="background-color: lightgreen; max-width: 1px;"></div>
+    <div class="col-md-3 pl-1">
+      <div class="card h-100">
+        <div class="card-body d-flex align-items-center justify-content-center">
+          <button class="btn btn-secondary btn-lg large" (click)="register()">
+            <i class="fas fa-user-plus"></i> Sign Up
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div *ngIf="showMessage" class="alert alert-danger mt-4">
+    <button type="button" class="close" data-dismiss="alert"><i class="fas fa-times"></i></button>
+    <strong>There were some errors with your login</strong>
+    <ul class="mt-2">
+      <li *ngFor="let error of errorMessage">{{ error }}</li>
+    </ul>
+  </div>
+  <div *ngIf="loginError" class="alert alert-danger mt-4">
+    {{ loginError }}
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="11" failures="0" errors="0" time="2.356">
+  <testsuite name="Validate headline functionality" errors="0" failures="0" skipped="0" timestamp="2023-11-15T02:56:46" time="0.705" tests="3">
+    <testcase classname="Validate headline functionality login user" name="Validate headline functionality login user" time="0.091">
+    </testcase>
+    <testcase classname="Validate headline functionality get headline" name="Validate headline functionality get headline" time="0.053">
+    </testcase>
+    <testcase classname="Validate headline functionality update headline" name="Validate headline functionality update headline" time="0.1">
+    </testcase>
+  </testsuite>
+  <testsuite name="Validate auth functionality" errors="0" failures="0" skipped="0" timestamp="2023-11-15T02:56:46" time="0.72" tests="3">
+    <testcase classname="Validate auth functionality register new user" name="Validate auth functionality register new user" time="0.203">
+    </testcase>
+    <testcase classname="Validate auth functionality login user" name="Validate auth functionality login user" time="0.055">
+    </testcase>
+    <testcase classname="Validate auth functionality logout user" name="Validate auth functionality logout user" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="Validate articles functionality" errors="0" failures="0" skipped="0" timestamp="2023-11-15T02:56:46" time="1.818" tests="5">
+    <testcase classname="Validate articles functionality get article with valid id" name="Validate articles functionality get article with valid id" time="0.244">
+    </testcase>
+    <testcase classname="Validate articles functionality get article with valid username" name="Validate articles functionality get article with valid username" time="0.213">
+    </testcase>
+    <testcase classname="Validate articles functionality get article with empty" name="Validate articles functionality get article with empty" time="0.268">
+    </testcase>
+    <testcase classname="Validate articles functionality get article with invalid id" name="Validate articles functionality get article with invalid id" time="0.209">
+    </testcase>
+    <testcase classname="Validate articles functionality should create a new article" name="Validate articles functionality should create a new article" time="0.267">
+    </testcase>
+  </testsuite>
+</testsuites>
